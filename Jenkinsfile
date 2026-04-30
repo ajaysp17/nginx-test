@@ -1,7 +1,7 @@
 pipeline {
 agent any
 
-```
+
 environment {
     REPO_URL = 'https://github.com/ajaysp17/nginx-test.git'
     BRANCH = 'main'
@@ -39,7 +39,7 @@ stages {
         }
     }
 }
-```
+
 
 }
 

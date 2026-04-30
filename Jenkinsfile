@@ -20,7 +20,7 @@ stages {
             sh '''
             echo "Updating deployment to trigger GitOps sync"
 
-            sed -i 's/nginx:latest/nginx:1.25/g' deployment.yml
+            sed -i 's/nginx:latest/nginx:1.25/g' deployment.yaml
             '''
         }
     }

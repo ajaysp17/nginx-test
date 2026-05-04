@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: nginx-test-ingress
 spec:
-  ingressClassName: no-auth-ingress
+  ingressClassName: nginx-controller-dev
   rules:
   - http:
       paths:

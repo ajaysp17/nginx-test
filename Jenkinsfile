@@ -27,15 +27,19 @@ stages {
 
     stage('Commit & Push') {
         steps {
-            sh '''
-            git config user.name "jenkins"
-            git config user.email "jenkins@company.com"
+            withCredentials([usernamePassword(credentialsId: 'git-creds', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
+                sh '''
+                git config user.name "jenkins"
+                git config user.email "jenkins@company.com"
 
-            git add .
-            git commit -m "GitOps: update nginx image" || echo "No changes"
+                git add .
+                git commit -m "GitOps: update nginx image" || echo "No changes"
 
-            git push origin main
-            '''
+                git remote set-url origin https://${GIT_USER}:${GIT_PASS}@github.com/ajaysp17/nginx-test.git
+
+                git push origin main
+                '''
+            }
         }
     }
 }

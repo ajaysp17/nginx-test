@@ -20,7 +20,7 @@ stages {
             sh '''
             echo "Updating deployment to trigger GitOps sync"
             // echo "Current Commit: ${env.GIT_COMMIT}"
-            sed -i 's/nginx:${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}/nginx:${env.GIT_COMMIT}/g' deployment.yaml
+            sed -i 's/nginx-custom:${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}/nginx-custom:${env.GIT_COMMIT}/g' deployment.yaml
             '''
         }
     }
